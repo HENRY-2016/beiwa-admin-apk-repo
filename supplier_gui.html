@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SUP GUI</title>
+	<meta charset="utf-8">
+   <link rel="stylesheet" href="static/js/bootstrap.min.css">
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/solar.css">
+
+   <script >
+    var data_source_url = "http://10.42.0.1:44444/" 
+    // var data_source_url = "http://127.0.0.1:5000/"  
+    </script>
+</head>
+<body  class="Body" onload="Retrive_offline_data ()">
+    
+       <!--************************************************************** -->
+    <div  id= "Navigetion" class="header">
+<!--========== CLOSE  -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="CloseIcon">&times;</label></a>
+            <!-- unik icon -->
+            <div class="imgcontainer">
+                <br>
+                    <img src="static/img/unik.png" class="image">
+                    
+                </div>
+
+            <center>
+                <a href="index.html">Home</a>
+                <a href="user_login.html">User</a>
+                <a href="supplier_login.html">Suppliers</a>
+                <a href="tech_login.html">Technician</a>
+            <center>
+</div>
+	 <center><label style="background-color: white;color: blue;font-size: 18px; margin-left: 15px"> Solar equipment defects</label></center>
+    <div id="NaviDiv">
+<!--======= OPEN  =====================-->
+        <span style="font-size:45px;cursor:pointer; color:white;" class="MenuBtn" onclick="openMenus()"><image src="static/img/nav.png" width="52px" height="65px"></image></span>
+    </div>
+    <script>
+        function openMenus()
+            {
+                document.getElementById("Navigetion").style.width = "240px"
+            }
+        function closeNavi ()
+            {
+                document.getElementById("Navigetion").style.width = "0"
+            }    
+    </script><br>
+
+<!-- ***************************************************** -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<center><p class="gui_type" > Loged in as a supplier</p> </center>
+	<center><p class="lable_menu_title" > Customers problem </p> </center>
+	<div class="RegistryOffice">
+	    <div id="RegistryNewBtnDiv">
+	        <label class="WhatsNewBtn" onclick="Load_Customers_Problems()">Problem</label>
+	    </div>
+	    <div id="saveBtnDIV">
+	        <label class="WhatsNewBtn" onclick="Save_Customers_Problems()"> Save</label>
+	    </div> <br><br>
+	    
+	   <p id="Customers_problems" class="Cust_problems">bbb </p>
+	</div>
+
+	<center><p class="comments_on_problem" > Comment on a Problem </p> </center>
+		<form action = "http://10.42.0.1:44444/supplier_comments" method = "POST" class="form_class">
+		    <div class="form-group">
+		    	<label>Problem Name</label>
+		      <input type="text" class="form-control" name="problem_name"
+		      placeholder=" Type the problem ">
+		    </div>
+
+		    <div class="form-group">
+		    	<label>Comments</label>
+		      <input type="text" class="form-control" name="problem_comment"
+		      placeholder=" Type your Comment ">
+		    </div>
+	     <button type="submit" class="btn btn-primary">Done</button>
+	  </form><br><br>
+	
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<center><p class="lable_menu_title" > Customer Orders </p> </center>
+	<div class="RegistryOffice">
+	    <div id="RegistryNewBtnDiv">
+	        <label class="WhatsNewBtn" onclick="Load_Customers_Orders()">Oders</label>
+	    </div>
+	    <div id="saveBtnDIV">
+	        <label class="WhatsNewBtn" onclick="Save_Customers_Orders()"> Save</label>
+	    </div> <br><br>
+	    
+	   <p id="Customers_Orders">new </p>
+	</div>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<center><p class="lable_menu_title" > Customers Feedbacks </p> </center>
+	<div class="RegistryOffice">
+	    <div id="RegistryNewBtnDiv_tech">
+	        <label class="WhatsNewBtn" onclick="Load_Customers_feedback()">Feedbacks</label>
+	    </div>
+	    <div id="saveBtnDIV">
+	        <label class="WhatsNewBtn" onclick="Save_Customers_feedback()"> Save</label>
+	    </div> <br><br>
+	    
+	   <p id="feedback">new </p>
+	</div>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<center><p class="lable_menu_title" > New solar equipment </p> </center>
+	<form role="form" action = "http://10.42.0.1:44444/new_equipment" method = "POST" class="form_class">
+    <div class="form-group">
+      <label for="name">Item name</label>
+      <input type="text" class="form-control" name="item_name"
+      placeholder="Item">
+    </div><br>
+
+    <div class="form-group">
+      <label for="name">Description</label>
+      <input type="text" class="form-control" name="item_description"
+      placeholder="description">
+    </div><br>
+
+    <div class="form-group">
+      <label for="name">Cost</label>
+      <input type="text" class="form-control" name="item_cost"
+      placeholder="selling price">
+    </div>
+    <button type="submit" class="btn btn-primary">Post</button>
+  </form><br>
+ 
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+ <center><p class="lable_menu_title" > Uploaded equipments </p> </center>
+	<div class="RegistryOffice">
+	    <div id="RegistryNewBtnDiv">
+	        <label class="WhatsNewBtn" onclick="Load_upload_equipments()">New</label>
+	    </div>
+	    <div id="saveBtnDIV">
+	        <label class="WhatsNewBtn" onclick="Save_upload_equipments()"> Save</label>
+	    </div> <br><br>
+	    
+	   <p id="upload_equipments" class="Cust_problems">new</p>
+	</div>
+<script>
+function Save_Customers_Problems()
+  {
+      var  registery_data = document.getElementById ("Customers_problems").innerHTML;
+      localStorage.setItem("C_problems", registery_data);
+  }
+function Save_Customers_Orders()
+          {
+              var  registery_data = document.getElementById ("Customers_Orders").innerHTML;
+              localStorage.setItem("C_Orders", registery_data);
+          }
+
+function Save_Customers_feedback()
+          {
+              var  registery_data = document.getElementById ("feedback").innerHTML;
+              localStorage.setItem("C_feedback", registery_data);
+          }   
+ function Save_upload_equipments()
+      {
+          var  registery_data = document.getElementById ("upload_equipments").innerHTML;
+          localStorage.setItem("upload", registery_data);
+      }      
+</script>
+<script>
+	/*problems*/
+	function Load_Customers_Problems()
+	    {
+	        
+	        var doc1 = new XMLHttpRequest();
+	        doc1.onreadystatechange = function()
+	        {
+	          if (this.readyState == 4 && this.status == 200)
+	              {
+	                  document.getElementById("Customers_problems").innerHTML = this.responseText;
+	              }
+	        };
+	        doc1.open("GET",data_source_url + "Get_Customers_problems",true);
+	        doc1.send();
+
+	    }
+	    /*orders.........*/
+	function Load_Customers_Orders()
+	    {
+	        
+	        var doc1 = new XMLHttpRequest();
+	        doc1.onreadystatechange = function()
+	        {
+	          if (this.readyState == 4 && this.status == 200)
+	              {
+	                  document.getElementById("Customers_Orders").innerHTML = this.responseText;
+	              }
+	        };
+	        doc1.open("GET",data_source_url + "Get_Customers_Orders",true);
+	        doc1.send();
+
+	    }
+	 /*feedbacks.........*/
+	function Load_Customers_feedback()
+	    {
+	        
+	        var doc1 = new XMLHttpRequest();
+	        doc1.onreadystatechange = function()
+	        {
+	          if (this.readyState == 4 && this.status == 200)
+	              {
+	                  document.getElementById("feedback").innerHTML = this.responseText;
+	              }
+	        };
+	        doc1.open("GET",data_source_url + "Get_Customers_feedback",true);
+	        doc1.send();
+
+	    }
+function Load_upload_equipments()
+	    {
+	        
+	        var doc1 = new XMLHttpRequest();
+	        doc1.onreadystatechange = function()
+	        {
+	          if (this.readyState == 4 && this.status == 200)
+	              {
+	                  document.getElementById("upload_equipments").innerHTML = this.responseText;
+	              }
+	        };
+	        doc1.open("GET",data_source_url + "Get_upload_equipments",true);
+	        doc1.send();
+
+	    }
+</script> 
+
+<script >
+function Retrive_offline_data ()
+{
+document.getElementById("Customers_problems").innerHTML = localStorage.getItem("C_problems");
+document.getElementById("Customers_Orders").innerHTML = localStorage.getItem("C_Orders");
+document.getElementById("feedback").innerHTML = localStorage.getItem("C_feedback");
+document.getElementById("upload_equipments").innerHTML = localStorage.getItem("upload");
+
+}
+
+</script>       
+</body>
+</html>

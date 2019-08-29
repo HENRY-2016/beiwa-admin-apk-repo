@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Supplier log in</title>
+  <meta charset="utf-8">
+   <link rel="stylesheet" href="static/js/bootstrap.min.css">
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/solar.css">
+
+</head>
+<body  class="Body">
+    
+       <!--************************************************************** -->
+    <div  id= "Navigetion" class="header">
+<!--========== CLOSE  -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="CloseIcon">&times;</label></a>
+            <!-- unik icon -->
+            <div class="imgcontainer">
+                <br>
+                    <img src="static/img/unik.png" class="image">
+                    
+                </div>
+
+            <center>
+                <a href="index.html">Home</a>
+                <a href="user_login.html">User</a>
+                <a href="supplier_login.html">Suppliers</a>
+                <a href="tech_login.html">Technician</a>
+            <center>
+</div>
+<!-- unik label -->
+    <center><label style="background-color: white;color: blue;font-size: 18px; margin-left: 15px"> Solar equipment defects</label></center>
+
+    <div id="NaviDiv">
+<!--======= OPEN  =====================-->
+        <span style="font-size:45px;cursor:pointer; color:white;" class="MenuBtn" onclick="openMenus()"><image src="static/img/nav.png" width="52px" height="65px"></image></span>
+    </div>
+    <script>
+        function openMenus()
+            {
+                document.getElementById("Navigetion").style.width = "240px"
+            }
+        function closeNavi ()
+            {
+                document.getElementById("Navigetion").style.width = "0"
+            }    
+    </script><br>
+
+<!-- ***************************************************** -->
+
+ 
+         <!--============ START MY BODY =========-->
+        <center><p class="loged_in_title" > supplier <br><br>...Please log in... </p></center><br>
+  <form role="form" class="form_class">
+    <div class="form-group">
+      <label for="name">User name</label>
+      <input type="text" class="form-control" id="supName" placeholder="Enter Name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">License</label>
+      <input type="text" class="form-control" id="supId" placeholder="id">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Password</label>
+      <input type="text" class="form-control" id="supPassword" placeholder="********">
+    </div>
+  </form>
+  <button onclick="Get_user_Credentials ()" class="btn btn-primary">Log in</button><br><br>
+  <center><label class="lable_menu_title" onclick="load_supplier_reg()" > Register </label> </center><br>
+  <!-- <div id="Continue_Div">
+  <button  onclick="load_supplier_gui()" class="btn btn-success">Continue</button><br>
+  </div><br>
+  <p style="display:none;">space</p> -->
+  <script >
+
+  function Get_user_Credentials ()
+{
+      /*get user credentials...*/
+    var password  = localStorage.getItem("S_password");
+    var user_name  = localStorage.getItem("S_user_name");
+    var s_id  = localStorage.getItem("S_id");
+
+    // console.log(user_name)
+    // console.log(password)
+    var LogIn_Name = document.getElementById("supName");
+    var LogIn_ID = document.getElementById("supId");
+    var LogIn_Password = document.getElementById("supPassword");
+    // console.log(LogIn_Name)
+      /*check the credentials......*/
+    if (LogIn_Name.value == user_name && LogIn_Password.value == password && LogIn_ID.value == s_id )
+      {
+        // console.log("logged in well.....")
+        // document.getElementById("Continue_Div").style.display="block";
+        window.location = "supplier_gui.html"
+      }
+    else
+      {
+        // var msg 
+        document.write("<br><br><br><br><center>Invalid user name or <br>password <br>or id <br><br> press back button <br>on your phon <br><br> to go back <br><br>and try again</center>");
+      }
+
+ 
+}
+
+// function load_supplier_gui()
+// {window.location = "supplier_gui.html"}
+
+function load_supplier_reg()
+{window.location = "supplier_reg.html"}
+function hide_continue_gui()
+{document.getElementById("Continue_Div").style.display="none";}
+
+  </script>
+</body>
+</html>
+
+<html>
+  
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tech Reg</title>
+  <meta charset="utf-8">
+   <link rel="stylesheet" href="static/js/bootstrap.min.css">
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/solar.css">
+</head>
+<body  class="Body">
+    
+       <!--************************************************************** -->
+    <div  id= "Navigetion" class="header">
+<!--========== CLOSE  -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="CloseIcon">&times;</label></a>
+            <!-- unik icon -->
+            <div class="imgcontainer">
+                <br>
+                    <img src="static/img/unik.png" class="image">
+                    
+                </div>
+
+            <center>
+                <a href="index.html">Home</a>
+                <a href="user_login.html">User</a>
+                <a href="supplier_login.html">Suppliers</a>
+                <a href="tech_login.html">Technician</a>
+            <center>
+</div>
+<!-- unik label -->
+<center><label style="background-color: white;color: blue;font-size: 18px; margin-left: 15px"> Solar equipment defects</label></center>
+    <div id="NaviDiv">
+<!--======= OPEN  =====================-->
+        <span style="font-size:45px;cursor:pointer; color:white;" class="MenuBtn" onclick="openMenus()"><image src="static/img/nav.png" width="52px" height="65px"></image></span>
+    </div>
+    <script>
+        function openMenus()
+            {
+                document.getElementById("Navigetion").style.width = "240px"
+            }
+        function closeNavi ()
+            {
+                document.getElementById("Navigetion").style.width = "0"
+            }    
+    </script><br>
+
+<!-- ***************************************************** -->
+
+ 
+         <!--============ START MY BODY =========-->
+  <center><label class="lable_menu_title" > """ Registering """ </label> </center>
+ 
+  <form  name="registration_form" class="form_class">
+
+    <div class="form-group">
+      <label for="name">Full names</label>
+      <input type="text" class="form-control" id="tech_full_names" placeholder="Full names" required>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">User name</label>
+      <input type="text" class="form-control" id="tech_user_name" placeholder="Enter Name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Token</label>
+      <input type="text" class="form-control" id="tech_token"
+      placeholder="token" required>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Password</label>
+      <input type="password"  class="form-control" id="tech_password" placeholder="*******" required>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Confirm Password</label>
+      <input type="password" id="confirm_password" class="form-control" id="name" placeholder="*******" required>
+    </div>
+    <div id="feed_back">
+      <button onclick="Store_User_data ()"  class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+
+
+<script >
+function Store_User_data ()
+{
+/*get input....*/
+document.getElementById("tech_full_names");
+document.getElementById("tech_user_name");
+document.getElementById("tech_token");
+document.getElementById("tech_password");
+
+/*obj to store txt */
+var full_names = tech_full_names.value;
+var  user_name = tech_user_name.value;
+var  T_tech_token = tech_token.value;
+var  password = tech_password.value;
+
+
+
+/*store dem */
+localStorage.setItem("T_full_names", full_names);
+localStorage.setItem("tech_token", T_tech_token);
+localStorage.setItem("T_user_name", user_name);
+localStorage.setItem("T_password", password);
+document.write("<br><br><br><center>Account created well <br><br>press back button<br><br> on your phon <br><br> to go back <br><br>and log in</center>");
+
+}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+

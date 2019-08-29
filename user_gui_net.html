@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User gui net</title>
+  <meta charset="utf-8">
+   <link rel="stylesheet" href="static/js/bootstrap.min.css">
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/solar.css">
+   <script >
+    var data_source_url = "http://10.42.0.1:5000/" 
+    // var data_source_url = "http://127.0.0.1:44444/"  
+    </script>
+
+
+</head>
+<body  class="Body" onload="Retrive_offline_data ()">
+    
+       <!--************************************************************** -->
+    <div  id= "Navigetion" class="header">
+<!--========== CLOSE  -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="CloseIcon">&times;</label></a>
+            <!-- unik icon -->
+            <div class="imgcontainer">
+                <br>
+                    <img src="static/img/unik.png" class="image">
+                    
+                </div>
+
+            <center>
+                <a href="index.html">Home</a>
+                <a href="user_login.html">User</a>
+                <a href="supplier_login.html">Suppliers</a>
+                <a href="tech_login.html">Technician</a>
+            <center>
+</div>
+ <center><label style="background-color: white;color: blue;font-size: 18px; margin-left: 15px"> Solar equipment defects</label></center>
+    <div id="NaviDiv">
+<!--======= OPEN  =====================-->
+        <span style="font-size:45px;cursor:pointer; color:white;" class="MenuBtn" onclick="openMenus()"><image src="static/img/nav.png" width="52px" height="65px"></image></span>
+    </div>
+    <script>
+        function openMenus()
+            {
+                document.getElementById("Navigetion").style.width = "240px"
+            }
+        function closeNavi ()
+            {
+                document.getElementById("Navigetion").style.width = "0"
+            }    
+    </script><br>
+
+<!-- ***************************************************** -->
+
+ 
+         <!--============ START MY BODY =========-->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <center><p class="lable_menu_title" > New solar equipments </p> </center>
+  <div class="RegistryOffice">
+      <div id="RegistryNewBtnDiv">
+          <label class="WhatsNewBtn" onclick="Load_new_solar_equipments()">New</label>
+      </div>
+      <div id="saveBtnDIV">
+          <label class="WhatsNewBtn" onclick="Save_new_solar_equipments()"> Save</label>
+      </div> <br><br>
+      
+     <p id="new_solar_equipments" class="Cust_problems">bbb </p>
+  </div>
+
+  
+  
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <center><p class="lable_menu_title" > View Comments</p> </center>
+
+  <center><p>From supplier</p></center>
+  <div class="RegistryOffice">
+      <div id="RegistryNewBtnDiv">
+          <label class="WhatsNewBtn" onclick="Load_comments_4m_sup()">New</label>
+      </div>
+      
+      <div id="saveBtnDIV">
+          <label class="WhatsNewBtn" onclick="Save_comments_4m_sup()"> Save</label>
+      </div> <br><br>
+      
+     <p id="comments_4m_sup">bbb </p>
+  </div><br>
+
+  <center><p>From Technician</p></center>
+  <div class="RegistryOffice">
+      <div id="RegistryNewBtnDiv">
+          <label class="WhatsNewBtn" onclick="Load_comments_4m_tech()">New</label>
+      </div>
+      <div id="saveBtnDIV">
+          <label class="WhatsNewBtn" onclick="Save_comments_4m_tech()"> Save</label>
+      </div> <br><br>
+      
+     <p id="comments_4m_tech">new </p>
+  </div>
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+        <button class="btnmainmenu" id="myBtn"> Post a problem</button><br><br>
+        <button class="btnmainmenu" id="myBtn2"> Make order</button><br><br>
+        <button class="btnmainmenu" id="myBtn3"> Make feedback</button><br><br>
+
+
+        <!-- ========================================== -->
+        <!-- Post a problem -->
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px; height: 50px">
+        </div>
+
+        <div class="modal-body" style="padding:40px 50px;">
+        <form action = "http://10.42.0.1:44444/users_problems" method = "POST">
+            <div class="form-group">
+                <!-- ============== MY form =============== -->
+                <center><p class="lable_menu_title" > Posting a problem </p></center>
+                <label for="usrname">User Name </label>
+                <input type="text" class="form-control" name="user_prob_name" placeholder="registered name">
+            </div>
+
+            <div class="form-group">
+            <label for="psw"> Equipment name </label>
+            <input type="text" class="form-control" name="equipment_name" placeholder="equipment">
+            </div>
+
+            <div class="form-group">
+                <label for="psw"> Your problem </label>
+                <input type="text" class="form-control" name="user_problem" placeholder="Type your problem">
+            </div>
+            
+        
+            <button type="submit" class="btn btn-success btn-block">send</button>      
+        </form>
+            </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+</div><!-- EDN of MY text div tag -->
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+</script>
+
+
+        <!-- ========================================== -->
+        <!-- Make an order -->
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px; height: 50px">
+        </div>
+
+        <div class="modal-body" style="padding:40px 50px;">
+          <form action = "http://10.42.0.1:44444/users_order" method = "POST">
+              <div class="form-group">
+                  <!-- ============== MY form =============== -->
+                  <center><p class="lable_menu_title" > Your order </p></center>
+                  
+                    <label for="usrname">User Name </label>
+                    <input type="text" class="form-control" name="user_order_name" placeholder="registered name">
+              </div>
+
+              <div class="form-group">
+                <label for="psw"> Item name </label>
+                <input type="text" class="form-control" name="user_order_item" placeholder="Enter your item">
+              </div>
+              
+          
+            <button type="submit" class="btn btn-success btn-block">send</button>
+                  
+            </form>
+            </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+</div><!-- EDN of MY text div tag -->
+<script>
+$(document).ready(function(){
+    $("#myBtn2").click(function(){
+        $("#myModal2").modal();
+    });
+});
+</script>
+
+        <!-- ========================================== -->
+        <!-- Make feedback -->
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal3">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px; height: 50px">
+        </div>
+
+        <div class="modal-body" style="padding:40px 50px;">
+          <form action = "http://10.42.0.1:44444/user_feedback" method = "POST">
+            <div class="form-group">
+                <!-- ============== MY form =============== -->
+                <center><p class="lable_menu_title" > Feedback </p> </center>
+                <form>
+                  <label for="usrname">User Name </label>
+                  <input type="text" class="form-control" name="feedback_uname" placeholder="registered name">
+            </div>
+
+            <div class="form-group">
+              <label for="psw"> Problem </label>
+              <input type="text" class="form-control" name="feedback_problem" placeholder="Enter your item">
+            </div>
+
+            <div class="form-group">
+              <label for="psw"> Your feedback </label>
+              <input type="text" class="form-control" name="feedback_msg" placeholder="Enter your feedback">
+            </div>
+            
+        
+          <button type="submit" class="btn btn-success btn-block">send</button>
+                  
+                </form>
+            </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+</div><!-- EDN of MY text div tag -->
+<script>
+$(document).ready(function(){
+    $("#myBtn3").click(function(){
+        $("#myModal3").modal();
+    });
+});
+</script>
+
+<script>
+/* saving data------- */
+  function Save_new_solar_equipments()
+      {
+          var  registery_data = document.getElementById ("new_solar_equipments").innerHTML;
+          localStorage.setItem("new_solars", registery_data);
+      }
+      /* scomments from supplier------- */
+  function Save_comments_4m_sup()
+      {
+          var  registery_data = document.getElementById ("comments_4m_sup").innerHTML;
+          localStorage.setItem("comments_sup", registery_data);
+      }
+   function Save_comments_4m_tech()
+      {
+          var  registery_data = document.getElementById ("comments_4m_tech").innerHTML;
+          localStorage.setItem("comments_tech", registery_data);
+      }
+   function User_Login_page ()
+      { window.location = "user_login.html" }
+
+                    
+</script>
+<script>
+  /* fetching data ------- */
+  function Load_new_solar_equipments()
+      {
+          
+          var doc1 = new XMLHttpRequest();
+          doc1.onreadystatechange = function()
+          {
+            if (this.readyState == 4 && this.status == 200)
+                {
+                    document.getElementById("new_solar_equipments").innerHTML = this.responseText;
+                }
+          };
+          doc1.open("GET",data_source_url + "Get_new_solar_equipments",true);
+          doc1.send();
+
+      }
+      /*comments from supplier*/
+      function Load_comments_4m_sup()
+      {
+          
+          var doc1 = new XMLHttpRequest();
+          doc1.onreadystatechange = function()
+          {
+            if (this.readyState == 4 && this.status == 200)
+                {
+                    document.getElementById("comments_4m_sup").innerHTML = this.responseText;
+                }
+          };
+          doc1.open("GET",data_source_url + "Get_comments_4m_sup",true);
+          doc1.send();
+
+      }
+      /*comments from supplier*/
+      function Load_comments_4m_tech()
+      {
+          
+          var doc1 = new XMLHttpRequest();
+          doc1.onreadystatechange = function()
+          {
+            if (this.readyState == 4 && this.status == 200)
+                {
+                    document.getElementById("comments_4m_tech").innerHTML = this.responseText;
+                }
+          };
+          doc1.open("GET",data_source_url + "Get_comments_4m_tech",true);
+          doc1.send();
+
+      }
+</script> 
+
+<script >
+function Retrive_offline_data ()
+  {
+document.getElementById("new_solar_equipments").innerHTML = localStorage.getItem("new_solars");
+document.getElementById("comments_4m_sup").innerHTML = localStorage.getItem("comments_sup");
+document.getElementById("comments_4m_tech").innerHTML = localStorage.getItem("comments_tech");
+  }
+</script>       
+</body>
+</html>
