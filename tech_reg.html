@@ -55,34 +55,35 @@
 
     <div class="form-group">
       <label for="name">Full names</label>
-      <input type="text" class="form-control" id="tech_full_names" placeholder="Full names" required>
+      <input type="text" class="form-control" autocomplete="off" id="tech_full_names" placeholder="Full names" required>
     </div>
 
 
     <div class="form-group">
       <label for="name">User name</label>
-      <input type="text" class="form-control" id="tech_user_name" placeholder="Enter Name" required>
+      <input type="text" class="form-control" id="tech_user_name" autocomplete="off" placeholder="Enter Name" required>
     </div>
 
     <div class="form-group">
       <label for="name">Token</label>
-      <input type="text" class="form-control" id="tech_token"
+      <input type="text" class="form-control" autocomplete="off" id="tech_token"
       placeholder="token" required>
     </div>
 
     <div class="form-group">
       <label for="name">Password</label>
-      <input type="password"  class="form-control" id="tech_password" placeholder="*******" required>
+      <input type="password" autocomplete="off"  class="form-control" id="tech_password" placeholder="*******" required>
     </div>
 
     <div class="form-group">
       <label for="name">Confirm Password</label>
-      <input type="password" id="confirm_password" class="form-control" id="name" placeholder="*******" required>
+      <input type="password" id="confirm_password" autocomplete="off" class="form-control" id="name" placeholder="*******" required>
     </div>
+    </form>
     <div id="feed_back">
       <button onclick="Store_User_data ()"  class="btn btn-primary">Submit</button>
       </div>
-  </form>
+  
 
 
 <script >
@@ -107,7 +108,11 @@ localStorage.setItem("T_full_names", full_names);
 localStorage.setItem("tech_token", T_tech_token);
 localStorage.setItem("T_user_name", user_name);
 localStorage.setItem("T_password", password);
-document.write("<br><br><br><center>Account created well <br><br>press back button<br><br> on your phon <br><br> to go back <br><br>and log in</center>");
+// document.write("<br><br><br><center>Account created well <br><br>press back button<br><br> on your phon <br><br> to go back <br><br>and log in</center>");
+setTimeout(load_user_gui,3000); 
+function load_user_gui ()
+    {window.location = "tech_gui.html"}
+
 
 }
 </script>

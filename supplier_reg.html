@@ -55,29 +55,30 @@
 
     <div class="form-group">
       <label for="name">User name</label>
-      <input type="text" class="form-control" id="reg_user_name" placeholder="User names" required>
+      <input type="text" class="form-control" autocomplete="off" id="reg_user_name" placeholder="User names" required>
     </div>
 
 
     <div class="form-group">
       <label for="name" > License</label>
-      <input  class="form-control" id="reg_id"  placeholder="license number" required>
+      <input  class="form-control" id="reg_id" autocomplete="off" placeholder="license number" required>
     </div>
 
 
     <div class="form-group">
       <label for="name">Password</label>
-      <input type="password"  class="form-control" id="reg_password" placeholder="*******" required>
+      <input type="password"  class="form-control" autocomplete="off" id="reg_password" placeholder="*******" required>
     </div>
 
     <div class="form-group">
       <label for="name">Confirm Password</label>
-      <input type="text" id="confirm_password" class="form-control" id="name" placeholder="*******"  required>
+      <input type="text" id="confirm_password" autocomplete="off" class="form-control" id="name" placeholder="*******"  required>
     </div>
+</form>
     <div id="feed_back">
       <button onclick="Store_User_data ()"  class="btn btn-primary">Submit</button>
       </div>
-  </form>
+ 
 
 
 <script >
@@ -99,9 +100,12 @@ localStorage.setItem("S_id", id);
 localStorage.setItem("S_user_name", user_name);
 localStorage.setItem("S_password", password);
 
-document.write("<br><br><br><center>Account created well <br><br>press back button<br><br> on your phon <br><br> to go back <br><br>and log in</center>");
+// document.write("<br><br><br><center>Account created well <br><br>press back button<br><br> on your phon <br><br> to go back <br><br>and log in</center>");
 
 
+setTimeout(load_user_gui,3000); 
+function load_user_gui ()
+    {window.location = "supplier_gui.html"}
 
 
 

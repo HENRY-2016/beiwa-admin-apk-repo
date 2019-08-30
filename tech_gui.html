@@ -10,7 +10,7 @@
 
    <script >
     var data_source_url = "http://10.42.0.1:44444/" 
-    // var data_source_url = "http://127.0.0.1:5000/"   
+    // var data_source_url = "http://127.0.0.1:44444/"   
     </script>
 </head>
 <body  class="Body" onload="Retrive_offline_data ()">
@@ -67,6 +67,7 @@
 
 	<center><p class="comments_on_problem" > Comment on a Problem </p> </center>
         <form action = "http://10.42.0.1:44444/tech_comments" method = "POST">
+        <!-- <form action = "http://127.0.0.1:44444/tech_comments" method = "POST"> -->
 		    <div class="form-group">
 		    	<label>Problem Name</label>
 		    <input type="text" class="form-control" name="problem_name"
