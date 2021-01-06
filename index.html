@@ -8,24 +8,29 @@
 <script src="static/js/main.js"></script>
 <link rel="stylesheet" type="text/css" href="static/css/main.css">
 <script>
-	function LoadApplication ()
-	{
-		LoadBeiwaUsingGitHub ();
-	  // LoadBeiwaUsingRaspberry ();
-	}
+function LoadApplication ()
+{
+	LoadBeiwaUsingGitHub ();
+	// LoadBeiwaUsingRaspberry ();
+}
 
+function Check_Network_Status ()
+{
+	if (!navigator.onLine) {ShowAlertBox ();}
+	else if (navigator.onLine) {LoadBeiwaUsingGitHub ();}
+}
 </script>
 </head>
 
-<body class="main_body" onload=" LoadApplication ()" ononline="LoadApplication ()" >
+<body class="main_body" onload="Check_Network_Status ()" ononline="LoadApplication ()" >
 <!-- <div id="main-header">
 	<div  id= "Navigetion" class=" header">
 		<div id="NaviDivHeader">
 			<span class="navigetion-icone-flower" >&#9752;</span>
 		</div>
 	</div>	 -->
-
-	<div id="alert-box-dispay-area"></div>
+<center>
+	<div id="alert-box-display-area"></div>
 	<div id="alert-box">
 		<div>
 			<div id="alert-box-header"></div>
@@ -33,6 +38,6 @@
 			<div id="alert-box-footer"></div>
 		</div>
 	</div>
-
+</center>
 </body>
 </html>

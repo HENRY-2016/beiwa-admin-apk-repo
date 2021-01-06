@@ -14,7 +14,7 @@ function CreateCustomAlertBox()
         HtmlAlertBox.style.left = (winW/2) - (550 * .5)+"px";
         HtmlAlertBox.style.top = "100px";
         HtmlAlertBox.style.display = "block";
-        document.getElementById('alert-box-header').innerHTML = "Network Or Server Error ";
+        document.getElementById('alert-box-header').innerHTML = "Network Error ";
         document.getElementById('alert-box-body').innerHTML = dialog;
         document.getElementById('alert-box-footer').innerHTML = '<button class="ok-alert-btn" onclick="Alert.ok()">OK</button>';
     }
