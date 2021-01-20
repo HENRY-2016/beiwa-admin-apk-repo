@@ -30,20 +30,11 @@ function ShowAlertBox (){Alert.render('<center>Please turn on <br> your network 
 
 
 // Beiwa
-function LoadBeiwaUsingGitHub ()
+function LoadSusanUsingGitHub ()
 {
     if(!navigator.onLine) {CreateCustomAlertBox ()}
-    if(navigator.onLine)
-    {window.location='https://henry-2016.github.io/beiwa-admin-server-repo/'}
+    if(navigator.onLine){window.location='https://henry-2016.github.io/susan-admin-server-repo/'}
     
 }
 
-function LoadBeiwaUsingRaspberry ()
-
-{
-    if(!navigator.onLine)
-        {CreateCustomAlertBox ()}
-    if(navigator.onLine)
-        {window.location="http://192.168.43.140:80/beiwa-admin-server-repo/index.html"}
-}
 

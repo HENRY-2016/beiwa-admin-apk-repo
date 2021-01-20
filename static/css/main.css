@@ -1,6 +1,6 @@
 
 
-.main_body { background-color:#3CB371}
+.main_body { background-color:#a21369}
 
 /*=======================================================================================================*/
                                             /*
@@ -23,12 +23,11 @@
     font-family:Times New Roman Times, serif; 
 }
 
-#NaviDivHeader
-    {
-        background-color: #00ac32;
-        height:50px;
-    }
-
+#main-header
+{
+    background-color:#a21369;
+    height:50px;
+}
 
 #alert-box-display-area{
     display: none;
