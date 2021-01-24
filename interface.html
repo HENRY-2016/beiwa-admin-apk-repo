@@ -22,7 +22,7 @@
     </div>
     <div id="main-body"> 
 
-        <center>
+        <!-- <center>
             <div id="alert-box-display-area"></div>
             <div id="alert-box">
                 <div>
@@ -31,17 +31,24 @@
                     <div id="alert-box-footer"></div>
                 </div>
             </div>
-        </center>
+        </center> -->
         <div id="card-area" class="w3-card type-writer-area">
+            
+            <center><img src="static/imgs/mm1.jpg" class="img"></center><br>
+            <center><label class="btn-label"><b>Hi Maria </b></label></center><br>
         
-        <center>
-            <label class="login-text">Log In Please</label><br>
-            <label class="login-label">Password</label><br>
-            <input type="password" class="security_inputs" id="password"><br>
-            <label id="invalid-label" class="invalid-label" >Invalid Password Try Again</label>
-            <label class="reload-btn" onclick="LoadInterfacePage ()"><b>Log In</b></label>
-        </center>
+            <!-- <center><label class="btn-label" onclick="StartTypingLyricsText ()"><b>Lets Get Started</b></label></center><br> -->
+            <center><label class="btn-label" onclick="StartTypingGreetingText ()"><b>Lets Get Started</b></label></center><br>
+            <label class="typed-labels" ><span class="greeting-text"></span></label><br><br>
 
+            <!-- <label class="typed-labels" ><span class="text-slider"></span></label><br><br> -->
+            <center><label class="btn-label"><b>My Special Message To You. <br> Listen To It</b></label></center><br>
+
+            <center>
+                <audio controls>
+                        <source src="static/imgs/mm3.mp3" type="audio/mpeg">
+                </audio>
+            </center><br><br>
         </div>
     </div><!-- <div id="main-header"></div> -->
 </div> <!-- end main body -->
